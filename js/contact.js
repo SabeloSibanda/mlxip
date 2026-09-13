@@ -123,19 +123,21 @@ function mailtoFallback() {
     btn.disabled = true;
     btn.textContent = 'Sending...';
 
-    fetch('https://formsubmit.co/hello@mlxip.com', {
+    fetch('https://formsubmit.co/ajax/hello@mlxip.com', {
       method: 'POST',
       headers: { 'Accept': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
       body: params
     })
       .then(function (r) { return r.json(); })
       .then(function (d) {
-        if (d.success) {
+        var ok = d && (d.success === true || String(d.success).toLowerCase() === 'true');
+        if (ok) {
           form.reset();
           applyIntent(intent, false);
           setStatus('Message sent. Thank you, we will come back to you at ' + email + '.', 'ok');
         } else {
-          setStatus('The form service rejected the message. Opening your email client instead.', 'err');
+          var reason = d && d.message ? ' (' + d.message + ')' : '';
+          setStatus('Direct send unavailable right now' + reason + '. Opening your email client instead.', 'err');
           mailtoFallback();
         }
       })
