@@ -15,41 +15,21 @@ jobs:
       - name: Install sshpass
         run: sudo apt-get update -qq && sudo apt-get install -y -qq sshpass
 
-      - name: Deploy via SSH (tar over one connection)
+      - name: Deploy via FTPS (encrypted data channel)
         env:
           host: ${{ secrets.FTP_HOST }}
           user: ${{ secrets.FTP_USER }}
           pass: ${{ secrets.FTP_PASS }}
         run: |
-          export SSHPASS="$pass"
-          TARGET="$user@$host"
-
-          ssh_base() {
-            sshpass -e ssh -4 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
-              -o PubkeyAuthentication=no -o ConnectTimeout=20 -p "$1" "$TARGET"
-          }
-
-          for PORT in 22 65002 21; do
-            echo "=== Trying SSH on port $PORT"
-            if ! ssh_base "$PORT" "echo ssh_ok" 2>&1 | grep -q ssh_ok; then
-              echo "Port $PORT not usable"
-              continue
+          for i in 1 2 3; do
+            echo "=== FTPS attempt $i"
+            if lftp -u "$user","$pass" -e "set ftp:ssl-allow yes; set ftp:ssl-force yes; set ftp:ssl-protect-data yes; set ftp:passive-mode on; set ssl:check-hostname no; set net:max-retries 5; set net:timeout 30; mirror -R --parallel=1 --delete --exclude-glob ^\.git.* --exclude-glob ^\.github/ --exclude-glob ^deploy\.sh$ --exclude-glob \.DS_Store --exclude-glob ^README\.md$ --exclude-glob ^copy/ --exclude-glob ^assets/references/ . public_html; bye" "$host"; then
+              echo "Deploy succeeded on attempt $i"
+              exit 0
             fi
-            for i in 1 2 3; do
-              echo "=== Deploy attempt $i on port $PORT"
-              if ssh_base "$PORT" "rm -rf css js assets && mkdir -p css/fonts js/vendor assets/videos" && \
-                 tar --exclude='./.git' --exclude='./.gitignore' --exclude='./.github' \
-                     --exclude='./deploy.sh' --exclude='./README.md' --exclude='./copy' \
-                     --exclude='./assets/references' --exclude='*.DS_Store' -cf - . | \
-                 ssh_base "$PORT" "tar -xf - -C ." && \
-                 ssh_base "$PORT" "ls -la; test -f index.html && test -f css/styles.css && test -f js/main.js && echo DEPLOY_VERIFIED_OK"; then
-                echo "Deploy succeeded on port $PORT, attempt $i"
-                exit 0
-              fi
-              echo "Attempt $i failed, retrying in 15s..."
-              sleep 15
-            done
+            echo "FTPS attempt $i failed, retrying in 15s..."
+            sleep 15
           done
-          echo "All deploy attempts failed"
+          echo "All FTPS attempts failed"
           exit 1
 
