@@ -10,7 +10,8 @@
   var canvas = document.getElementById('bg-canvas');
   var ctx = canvas.getContext('2d');
   var W = 0, H = 0, dpr = 1;
-  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduced = false;
+  try { reduced = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches); } catch (e) { reduced = false; }
 
   function resize() {
     dpr = Math.min(window.devicePixelRatio || 1, 1.5);
@@ -24,8 +25,9 @@
   var ACCENT = '232,162,60';
   function smooth(t) { return t <= 0 ? 0 : t >= 1 ? 1 : t * t * (3 - 2 * t); }
   function progress() {
+    var sy = window.scrollY || document.documentElement.scrollTop;
     var max = document.documentElement.scrollHeight - window.innerHeight;
-    return max > 0 ? smooth(Math.min(1, Math.max(0, window.scrollY / max))) : 0;
+    return max > 0 ? smooth(Math.min(1, Math.max(0, sy / max))) : 0;
   }
 
   /* ---- phase weights ---- */

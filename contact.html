@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MLX | Contact</title>
+<meta name="description" content="Send MLX a technology submission or an infrastructure challenge. Every message goes to hello@mlxip.com." />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A0D10'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='14' fill='%23E8A23C' text-anchor='middle'%3EMLX%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+<video id="bg-video" muted playsinline preload="auto" loop></video>
+<canvas id="bg-canvas"></canvas>
+<div class="bg-vignette"></div>
+<div class="bg-grain"></div>
+
+<!-- Navigation -->
+<header class="nav">
+  <a class="nav__mark" href="index.html" data-scroll>
+    <span class="nav__mark-glyph">MLX</span>
+    <span class="nav__mark-sub">IP Commercialisation House</span>
+  </a>
+  <nav class="nav__links">
+    <a href="index.html">Home</a>
+    <a href="index.html#engine">The Engine</a>
+    <a href="index.html#portfolio">Technologies</a>
+    <a href="index.html#team">Experience</a>
+    <a href="#mail-form" data-scroll class="nav__is-active">Contact</a>
+  </nav>
+  <a class="btn btn--accent nav__cta" href="#mail-form" data-scroll>Reach Out</a>
+  <button class="nav__burger" id="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<div class="nav-mobile" id="nav-mobile">
+  <a href="index.html">Home</a>
+  <a href="index.html#engine">The Engine</a>
+  <a href="index.html#portfolio">Technologies</a>
+  <a href="index.html#team">Experience</a>
+  <a href="#mail-form" data-scroll class="nav-mobile__cta">Contact</a>
+</div>
+
+<main>
+
+  <section class="contact-hero">
+    <p class="mono tag reveal">CONTACT</p>
+    <h1 class="reveal">Two Routes <em>In</em></h1>
+    <p class="contact-hero__sub reveal">
+      Bring a technology that needs a market, or an infrastructure problem that needs intelligence.
+      Every message goes straight to <a href="mailto:hello@mlxip.com">hello@mlxip.com</a>.
+    </p>
+  </section>
+
+  <section class="section" id="mail-form">
+    <div class="grid grid--2 reveal">
+      <article class="card card--route">
+        <p class="mono tag">FOR TECHNOLOGY &amp; IP OWNERS</p>
+        <h3>Have technology.<br />Need a market?</h3>
+        <p>Bring the IP, the research or the prototype. MLX brings market intelligence, positioning, industry access and partnerships, and moves the asset through the engine.</p>
+        <button type="button" class="btn btn--accent" data-intent="technology">Submit a Technology</button>
+      </article>
+      <article class="card card--route">
+        <p class="mono tag">FOR INDUSTRY</p>
+        <h3>Have an infrastructure<br />problem?</h3>
+        <p>Reduce downtime. Predict failures. Improve asset utilisation. Manage environmental risk. If better intelligence changes your cost, risk or performance, we should talk.</p>
+        <button type="button" class="btn btn--ghost" data-intent="challenge">Tell Us Your Challenge</button>
+      </article>
+    </div>
+
+    <form id="contact-form" class="contact-form reveal" action="https://formsubmit.co/hello@mlxip.com" method="POST" target="_blank" novalidate>
+      <input type="text" name="_honey" id="honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+      <div class="form-intent" role="radiogroup" aria-label="Message type">
+        <input type="radio" name="intent" id="intent-tech" value="technology" checked />
+        <label for="intent-tech"><b>Submit a Technology</b><small>TECHNOLOGY &amp; IP OWNERS</small></label>
+        <input type="radio" name="intent" id="intent-challenge" value="challenge" />
+        <label for="intent-challenge"><b>Tell Us Your Challenge</b><small>INFRASTRUCTURE OPERATORS</small></label>
+      </div>
+
+      <div class="form-grid">
+        <div class="field">
+          <span>YOUR NAME *</span>
+          <input type="text" name="name" id="f-name" required minlength="2" maxlength="80" placeholder="Jane Doe" autocomplete="name" />
+        </div>
+        <div class="field">
+          <span>EMAIL *</span>
+          <input type="email" name="email" id="f-email" required placeholder="jane.doe@company.com" autocomplete="email" />
+        </div>
+        <div class="field">
+          <span>COMPANY / ORGANISATION</span>
+          <input type="text" name="company" id="f-company" maxlength="120" placeholder="Optional" autocomplete="organization" />
+        </div>
+        <div class="field">
+          <span>REFERENCE (OPTIONAL)</span>
+          <input type="text" name="reference" id="f-ref" maxlength="80" placeholder="Deal, asset or project name" />
+        </div>
+        <div class="field wide">
+          <span id="msg-label">WHAT ARE YOU BRINGING? *</span>
+          <textarea name="message" id="f-message" required minlength="10" maxlength="4000" placeholder="Describe the technology, its stage, and what you are looking for."></textarea>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn--accent">Send Message</button>
+        <p class="form-note">Goes to <a href="mailto:hello@mlxip.com">hello@mlxip.com</a>. The first submission triggers a one-time verification email from the form service; confirm it once and all future messages arrive directly.</p>
+      </div>
+
+      <p class="form-status" id="form-status" role="status"></p>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="nav__mark-glyph">MLX</span>
+        <p class="mono">TURNING INTELLIGENCE INTO INFRASTRUCTURE VALUE</p>
+      </div>
+      <nav class="footer__links mono">
+        <a href="index.html#engine">THE ENGINE</a>
+        <a href="index.html#portfolio">TECHNOLOGIES</a>
+        <a href="index.html#team">EXPERIENCE</a>
+        <a href="#mail-form" data-scroll>CONTACT</a>
+      </nav>
+      <p class="footer__copy mono">&copy; 2026 MLX. IP COMMERCIALISATION HOUSE. <a href="mailto:hello@mlxip.com">hello@mlxip.com</a></p>
+    </div>
+  </footer>
+
+</main>
+
+<script src="js/vendor/gsap.min.js"></script>
+<script src="js/vendor/ScrollTrigger.min.js"></script>
+<script src="js/vendor/lenis.min.js"></script>
+<script src="js/background.js"></script>
+<script src="js/contact.js"></script>
+</body>
+</html>

@@ -1,7 +1,8 @@
 /* MLX main.js: Lenis + GSAP ScrollTrigger wiring */
 (function () {
   gsap.registerPlugin(ScrollTrigger);
-  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduced = false;
+  try { reduced = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches); } catch (e) { reduced = false; }
 
   /* ---------- smooth scroll (Lenis) ---------- */
   var lenis = null;
@@ -29,7 +30,7 @@
   var nav = document.querySelector('.nav');
   var burger = document.getElementById('nav-burger');
   var mobile = document.getElementById('nav-mobile');
-  function onScrollNav() { nav.classList.toggle('is-scrolled', window.scrollY > 40); }
+  function onScrollNav() { nav.classList.toggle('is-scrolled', (window.scrollY || document.documentElement.scrollTop) > 40); }
   window.addEventListener('scroll', onScrollNav, { passive: true });
   onScrollNav();
   function closeMobile() { mobile.classList.remove('is-open'); }
