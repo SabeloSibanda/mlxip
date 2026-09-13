@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MLX — Turning Intelligence into Infrastructure Value</title>
+<meta name="description" content="MLX is an IP commercialisation house. We turn AI and deep-tech intellectual property into commercial value for energy and infrastructure." />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A0D10'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='14' fill='%23E8A23C' text-anchor='middle'%3EMLX%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+<!-- Scroll-scrubbed background: video slot (if assets/videos/MLX-scroll-background.mp4 exists)
+     falls back to the procedural canvas. -->
+<video id="bg-video" muted playsinline preload="auto" loop></video>
+<canvas id="bg-canvas"></canvas>
+<div class="bg-vignette"></div>
+<div class="bg-grain"></div>
+
+<!-- Navigation -->
+<header class="nav">
+  <a class="nav__mark" href="#hero" data-scroll>
+    <span class="nav__mark-glyph">MLX</span>
+    <span class="nav__mark-sub">IP Commercialisation House</span>
+  </a>
+  <nav class="nav__links">
+    <a href="#engine" data-scroll>The Engine</a>
+    <a href="#focus" data-scroll>Focus</a>
+    <a href="#portfolio" data-scroll>Technologies</a>
+    <a href="#team" data-scroll>People</a>
+    <a href="#insights" data-scroll>Insights</a>
+  </nav>
+  <a class="btn btn--accent nav__cta" href="#contact" data-scroll>Partner With Us</a>
+  <button class="nav__burger" id="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<div class="nav-mobile" id="nav-mobile">
+  <a href="#engine" data-scroll>The Engine</a>
+  <a href="#focus" data-scroll>Focus</a>
+  <a href="#portfolio" data-scroll>Technologies</a>
+  <a href="#why" data-scroll>Why MLX</a>
+  <a href="#team" data-scroll>People</a>
+  <a href="#insights" data-scroll>Insights</a>
+  <a href="#contact" data-scroll class="nav-mobile__cta">Partner With Us</a>
+</div>
+
+<main>
+
+  <!-- 1 · HERO -->
+  <section class="hero" id="hero">
+    <div class="hero__inner">
+      <p class="mono tag reveal">IP COMMERCIALISATION HOUSE</p>
+      <h1 class="hero__wordmark reveal">MLX</h1>
+      <p class="hero__tagline reveal">Turning Intelligence into<br /><em>Infrastructure Value.</em></p>
+      <p class="hero__statement reveal">
+        The world&rsquo;s most valuable AI and deep-tech IP is stranded in labs and patents.
+        MLX bridges technology and infrastructure &mdash; moving proven capability into the
+        systems the real economy runs on.
+      </p>
+      <div class="hero__ctas reveal">
+        <a class="btn btn--accent" href="#portfolio" data-scroll>Explore Technologies</a>
+        <a class="btn btn--ghost" href="#contact" data-scroll>Partner With Us</a>
+      </div>
+    </div>
+    <div class="hero__scrollcue mono" aria-hidden="true">
+      <span>SCROLL</span><i></i>
+    </div>
+  </section>
+
+  <!-- 2 · THE ENGINE -->
+  <section class="engine" id="engine">
+    <div class="engine__pin" id="engine-pin">
+      <div class="section-head">
+        <p class="mono tag reveal">WHAT WE DO</p>
+        <h2 class="reveal">The Commercialisation <em>Engine</em></h2>
+        <p class="section-head__sub reveal">
+          Not consulting. Not one-off deals. A repeatable system that moves proprietary
+          technology from source to scale &mdash; the same disciplined funnel, every time.
+        </p>
+      </div>
+
+      <div class="engine__layout">
+        <div class="engine__funnel" id="engine-funnel" aria-hidden="true">
+          <div class="engine__funnel-bar" data-stage="0"><label>SOURCE</label></div>
+          <div class="engine__funnel-bar" data-stage="1"><label>ASSESS</label></div>
+          <div class="engine__funnel-bar" data-stage="2"><label>POSITION</label></div>
+          <div class="engine__funnel-bar" data-stage="3"><label>VALIDATE</label></div>
+          <div class="engine__funnel-bar" data-stage="4"><label>STRUCTURE</label></div>
+          <div class="engine__funnel-bar" data-stage="5"><label>SCALE</label></div>
+        </div>
+
+        <div class="engine__stages">
+          <article class="stage" data-stage="0">
+            <span class="mono stage__num">01</span>
+            <h3>Source</h3>
+            <p>Identify promising proprietary technologies &mdash; from research institutions, founders and IP owners &mdash; with genuine, unrealised potential.</p>
+          </article>
+          <article class="stage" data-stage="1">
+            <span class="mono stage__num">02</span>
+            <h3>Assess</h3>
+            <p>Evaluate the IP, its readiness, the market need and the commercial potential &mdash; before capital or effort is committed.</p>
+          </article>
+          <article class="stage" data-stage="2">
+            <span class="mono stage__num">03</span>
+            <h3>Position</h3>
+            <p>Define the problem it solves, the customer who pays, and the value proposition in the language industry understands.</p>
+          </article>
+          <article class="stage" data-stage="3">
+            <span class="mono stage__num">04</span>
+            <h3>Validate</h3>
+            <p>Test with industry users and establish proof of value in real operating environments &mdash; not demos, evidence.</p>
+          </article>
+          <article class="stage" data-stage="4">
+            <span class="mono stage__num">05</span>
+            <h3>Structure</h3>
+            <p>Choose the right commercial route: licensing, joint venture, partnership, spin-out &mdash; matched to the asset and the market.</p>
+          </article>
+          <article class="stage" data-stage="5">
+            <span class="mono stage__num">06</span>
+            <h3>Scale</h3>
+            <p>Build the commercial ecosystem around the technology &mdash; customers, capital and partners &mdash; until it compounds on its own.</p>
+          </article>
+        </div>
+      </div>
+
+      <p class="engine__foot mono reveal">SOURCE &#9656; ASSESS &#9656; POSITION &#9656; VALIDATE &#9656; STRUCTURE &#9656; SCALE</p>
+    </div>
+  </section>
+
+  <!-- 3 · FOCUS -->
+  <section class="focus section" id="focus">
+    <div class="section-head">
+      <p class="mono tag reveal">FOCUS</p>
+      <h2 class="reveal">Where We Play</h2>
+      <p class="section-head__sub reveal">
+        AI for the physical world. One test applies everywhere: does better intelligence
+        materially change cost, risk, availability or operational performance?
+      </p>
+    </div>
+    <div class="grid grid--4">
+      <article class="card reveal">
+        <div class="card__icon mono">WTR&#8725;01</div>
+        <h3>Water &amp; Dams</h3>
+        <p>Dam and reservoir management, water availability, infrastructure risk, flow and level prediction, anomaly detection, operational planning.</p>
+        <ul class="mono card__meta"><li>FLOW PREDICTION</li><li>HAZARD MONITORING</li><li>RESERVOIR OPTIMISATION</li></ul>
+      </article>
+      <article class="card reveal">
+        <div class="card__icon mono">ENR&#8725;02</div>
+        <h3>Renewable Energy</h3>
+        <p>Wind, solar and battery systems; generation assets, predictive maintenance and performance optimisation across the portfolio.</p>
+        <ul class="mono card__meta"><li>PREDICTIVE MAINTENANCE</li><li>YIELD OPTIMISATION</li><li>BATTERY SYSTEMS</li></ul>
+      </article>
+      <article class="card reveal">
+        <div class="card__icon mono">GRD&#8725;03</div>
+        <h3>Energy Infrastructure</h3>
+        <p>Transmission, distribution, substations and grid infrastructure &mdash; asset health, predictive analytics, network resilience.</p>
+        <ul class="mono card__meta"><li>ASSET HEALTH</li><li>GRID ANALYTICS</li><li>SUBSTATION RISK</li></ul>
+      </article>
+      <article class="card reveal">
+        <div class="card__icon mono">IND&#8725;04</div>
+        <h3>Industrial Infrastructure</h3>
+        <p>Mining, ports, logistics and heavy industry &mdash; intelligence for large-scale physical assets where downtime is expensive.</p>
+        <ul class="mono card__meta"><li>DOWNTIME REDUCTION</li><li>ASSET UTILISATION</li><li>LOGISTICS FLOW</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- 4 · IP PORTFOLIO -->
+  <section class="portfolio section" id="portfolio">
+    <div class="section-head">
+      <p class="mono tag reveal">IP PORTFOLIO</p>
+      <h2 class="reveal">Our Technologies</h2>
+      <p class="section-head__sub reveal">
+        A visible, credible home for the IP we commercialise. Every asset moves through
+        the engine &mdash; with its pathway and status on the record.
+      </p>
+    </div>
+
+    <div class="portfolio__table reveal" role="table" aria-label="IP portfolio">
+      <div class="portfolio__row portfolio__row--head mono" role="row">
+        <span>TECHNOLOGY</span><span>PROBLEM ADDRESSED</span><span>MARKET &#8725; SECTOR</span><span>COMMERCIAL PATHWAY</span><span>STATUS</span>
+      </div>
+      <div class="portfolio__row" role="row">
+        <span class="portfolio__tech" data-th="Technology">
+          <strong>Predict</strong>
+          <small class="mono">WATER INTELLIGENCE</small>
+        </span>
+        <span data-th="Problem addressed">AI-powered prediction and hazard monitoring for dams and reservoirs &mdash; flow, level and risk, ahead of time.</span>
+        <span data-th="Market / Sector">Dams, reservoirs, utilities, mining</span>
+        <span data-th="Commercial pathway" class="mono portfolio__path">POC &#9656; VALIDATION &#9656; LICENSING</span>
+        <span data-th="Status"><i class="status status--live">COMMERCIALISING</i></span>
+      </div>
+      <div class="portfolio__row" role="row">
+        <span class="portfolio__tech" data-th="Technology">
+          <strong>Future IP</strong>
+          <small class="mono">IN ASSESSMENT</small>
+        </span>
+        <span data-th="Problem addressed" class="portfolio__muted">Next technology currently moving through Source &#9656; Assess.</span>
+        <span data-th="Market / Sector" class="portfolio__muted">Energy &amp; infrastructure</span>
+        <span data-th="Commercial pathway" class="mono portfolio__muted portfolio__path">TO BE DEFINED</span>
+        <span data-th="Status"><i class="status status--pending">PIPELINE</i></span>
+      </div>
+    </div>
+
+    <div class="portfolio__cta reveal">
+      <p>Own technology with unrealised potential?</p>
+      <a class="btn btn--accent" href="#contact" data-scroll>Submit Your Technology</a>
+    </div>
+  </section>
+
+  <!-- 5 · WHY MLX -->
+  <section class="why section" id="why">
+    <div class="section-head">
+      <p class="mono tag reveal">WHY MLX</p>
+      <h2 class="reveal">The Difference</h2>
+      <p class="section-head__sub reveal">
+        Commercialising deep tech takes three capabilities that rarely live in one place.
+        MLX was built to hold all three.
+      </p>
+    </div>
+    <div class="grid grid--3">
+      <article class="card card--pillar reveal">
+        <span class="mono stage__num">I</span>
+        <h3>Technology</h3>
+        <p>We understand AI and deep-tech deeply enough to spot genuine commercial potential &mdash; and to see past the hype that obscures it.</p>
+      </article>
+      <article class="card card--pillar reveal">
+        <span class="mono stage__num">II</span>
+        <h3>Commercial</h3>
+        <p>We translate technology into products, markets and business models that customers actually understand and buy.</p>
+      </article>
+      <article class="card card--pillar reveal">
+        <span class="mono stage__num">III</span>
+        <h3>Access</h3>
+        <p>We connect technology with the operators, corporates, investors and strategic partners who turn proof of value into revenue.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 6 · TEAM -->
+  <section class="team section" id="team">
+    <div class="section-head">
+      <p class="mono tag reveal">PEOPLE</p>
+      <h2 class="reveal">The Team</h2>
+      <p class="section-head__sub reveal">
+        A small, senior team built around the three disciplines the engine requires.
+      </p>
+    </div>
+    <div class="grid grid--3">
+      <article class="card card--person reveal">
+        <div class="person__initials mono">SS</div>
+        <h3>Sabelo Sibanda</h3>
+        <p class="mono person__role">TECHNOLOGY &amp; AI</p>
+        <p>Connects emerging technologies and IP to practical applications &mdash; focused on what the technology can do, and how it becomes commercially viable.</p>
+      </article>
+      <article class="card card--person reveal">
+        <div class="person__initials mono">XL</div>
+        <h3>Xhantilomzi Lwana</h3>
+        <p class="mono person__role">COMMERCIALISATION &amp; MARKET ACCESS</p>
+        <p>Translates technology into markets, business models and commercial opportunities &mdash; the voice industry hears.</p>
+      </article>
+      <article class="card card--person reveal">
+        <div class="person__initials mono">MH</div>
+        <h3>Mark Hinton</h3>
+        <p class="mono person__role">OPERATIONS, INTEGRATION &amp; EXECUTION</p>
+        <p>The connector who turns strategy into coordinated action &mdash; and keeps proof of value moving toward commercial reality.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 7 · INSIGHTS -->
+  <section class="insights section" id="insights">
+    <div class="section-head">
+      <p class="mono tag reveal">INSIGHTS</p>
+      <h2 class="reveal">Market Intelligence</h2>
+      <p class="section-head__sub reveal">
+        Analysis on technology, infrastructure, AI and IP commercialisation &mdash; from
+        inside the engine.
+      </p>
+    </div>
+    <div class="insights__empty reveal">
+      <div class="mono insights__pulse" aria-hidden="true"></div>
+      <p class="mono">COMING SOON</p>
+      <p>The first dispatches from the portfolio are in validation. Check back shortly.</p>
+    </div>
+  </section>
+
+  <!-- 8 · CONTACT -->
+  <section class="contact section" id="contact">
+    <div class="section-head">
+      <p class="mono tag reveal">CONTACT</p>
+      <h2 class="reveal">Two Routes <em>In</em></h2>
+    </div>
+    <div class="grid grid--2 contact__routes">
+      <article class="card card--route reveal">
+        <p class="mono tag">FOR TECHNOLOGY &amp; IP OWNERS</p>
+        <h3>Have technology.<br />Need a market?</h3>
+        <p>
+          Bring the IP, the research or the prototype. MLX brings market intelligence,
+          positioning, industry access and partnerships &mdash; and moves the asset
+          through the engine.
+        </p>
+        <a class="btn btn--accent" href="mailto:technologies@mlx.example?subject=Technology%20Submission">Submit a Technology</a>
+      </article>
+      <article class="card card--route reveal">
+        <p class="mono tag">FOR INDUSTRY</p>
+        <h3>Have an infrastructure<br />problem?</h3>
+        <p>
+          Reduce downtime. Predict failures. Improve asset utilisation. Manage
+          environmental risk. If better intelligence changes your cost, risk or
+          performance &mdash; we should talk.
+        </p>
+        <a class="btn btn--ghost" href="mailto:partners@mlx.example?subject=Infrastructure%20Challenge">Tell Us Your Challenge</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- 9 · FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="nav__mark-glyph">MLX</span>
+        <p class="mono">TURNING INTELLIGENCE INTO INFRASTRUCTURE VALUE</p>
+      </div>
+      <nav class="footer__links mono">
+        <a href="#engine" data-scroll>THE ENGINE</a>
+        <a href="#portfolio" data-scroll>TECHNOLOGIES</a>
+        <a href="#team" data-scroll>PEOPLE</a>
+        <a href="#contact" data-scroll>PARTNER</a>
+      </nav>
+      <p class="footer__copy mono">&copy; 2026 MLX &mdash; IP COMMERCIALISATION HOUSE</p>
+    </div>
+  </footer>
+
+</main>
+
+<script src="js/vendor/gsap.min.js"></script>
+<script src="js/vendor/ScrollTrigger.min.js"></script>
+<script src="js/vendor/lenis.min.js"></script>
+<script src="js/background.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
