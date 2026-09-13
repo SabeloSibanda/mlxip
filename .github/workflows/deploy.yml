@@ -21,23 +21,34 @@ jobs:
           user: ${{ secrets.FTP_USER }}
           pass: ${{ secrets.FTP_PASS }}
         run: |
-          SSH_OPTS="-p 65002 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o PubkeyAuthentication=no -o ConnectTimeout=20"
           export SSHPASS="$pass"
           TARGET="$user@$host"
 
-          for i in 1 2 3 4 5; do
-            echo "=== Attempt $i"
-            if sshpass -e ssh $SSH_OPTS "$TARGET" "rm -rf css js assets && mkdir -p css/fonts js/vendor assets/videos" && \
-               tar --exclude='./.git' --exclude='./.gitignore' --exclude='./.github' \
-                   --exclude='./deploy.sh' --exclude='./README.md' --exclude='./copy' \
-                   --exclude='./assets/references' --exclude='*.DS_Store' -cf - . | \
-               sshpass -e ssh $SSH_OPTS "$TARGET" "tar -xf - -C ." && \
-               sshpass -e ssh $SSH_OPTS "$TARGET" "ls -la; test -f index.html && test -f css/styles.css && test -f js/main.js && echo DEPLOY_VERIFIED_OK"; then
-              echo "Deploy succeeded on attempt $i"
-              exit 0
+          ssh_base() {
+            sshpass -e ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+              -o PubkeyAuthentication=no -o ConnectTimeout=20 -p "$1" "$TARGET"
+          }
+
+          for PORT in 22 65002 21; do
+            echo "=== Trying SSH on port $PORT"
+            if ! ssh_base "$PORT" "echo ssh_ok" 2>&1 | grep -q ssh_ok; then
+              echo "Port $PORT not usable"
+              continue
             fi
-            echo "Attempt $i failed, retrying in 15s..."
-            sleep 15
+            for i in 1 2 3; do
+              echo "=== Deploy attempt $i on port $PORT"
+              if ssh_base "$PORT" "rm -rf css js assets && mkdir -p css/fonts js/vendor assets/videos" && \
+                 tar --exclude='./.git' --exclude='./.gitignore' --exclude='./.github' \
+                     --exclude='./deploy.sh' --exclude='./README.md' --exclude='./copy' \
+                     --exclude='./assets/references' --exclude='*.DS_Store' -cf - . | \
+                 ssh_base "$PORT" "tar -xf - -C ." && \
+                 ssh_base "$PORT" "ls -la; test -f index.html && test -f css/styles.css && test -f js/main.js && echo DEPLOY_VERIFIED_OK"; then
+                echo "Deploy succeeded on port $PORT, attempt $i"
+                exit 0
+              fi
+              echo "Attempt $i failed, retrying in 15s..."
+              sleep 15
+            done
           done
           echo "All deploy attempts failed"
           exit 1
