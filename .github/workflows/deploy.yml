@@ -25,7 +25,7 @@ jobs:
           TARGET="$user@$host"
 
           ssh_base() {
-            sshpass -e ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+            sshpass -e ssh -4 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
               -o PubkeyAuthentication=no -o ConnectTimeout=20 -p "$1" "$TARGET"
           }
 
