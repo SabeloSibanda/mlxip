@@ -1,8 +1,8 @@
 /* ============ MLX procedural scroll-scrubbed background ============
  * Three visual phases blended by global scroll progress:
- *   0.00–0.33  HERO      — dusk dam/reservoir: layered ridges, water, amber horizon signal
- *   0.33–0.66  SIGNAL    — abstract flowing data light, contour waves in the accent color
- *   0.66–1.00  ENVIRONMENT — perspective grid with glowing nodes: energy-infrastructure feel
+ *   0.00-0.33  HERO: dusk dam and reservoir, layered ridges, water, amber horizon signal
+ *   0.33-0.66  SIGNAL: abstract flowing data light, contour waves in the accent color
+ *   0.66-1.00  ENVIRONMENT: perspective grid with glowing nodes, energy-infrastructure feel
  * If assets/videos/MLX-scroll-background.mp4 exists, main.js swaps to the video
  * and this canvas is hidden. Rendering continues either way.
  */
@@ -39,7 +39,7 @@
   /* ---- deterministic pseudo-random ---- */
   function prand(i) { var x = Math.sin(i * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); }
 
-  /* ================= PHASE 0 — hero: dusk dam & reservoir ================= */
+  /* ================= PHASE 0: hero, dusk dam and reservoir ================= */
   function drawHero(t, a) {
     if (a <= 0.004) return;
     ctx.save(); ctx.globalAlpha = a;
@@ -98,7 +98,7 @@
     ctx.restore();
   }
 
-  /* ================= PHASE 1 — signal: flowing data light ================= */
+  /* ================= PHASE 1: signal, flowing data light ================= */
   function drawSignal(t, a) {
     if (a <= 0.004) return;
     ctx.save(); ctx.globalAlpha = a;
@@ -140,7 +140,7 @@
     ctx.restore();
   }
 
-  /* ================= PHASE 2 — environment: infrastructure grid ================= */
+  /* ================= PHASE 2: environment, infrastructure grid ================= */
   function drawEnvironment(t, a) {
     if (a <= 0.004) return;
     ctx.save(); ctx.globalAlpha = a;

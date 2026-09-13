@@ -1,4 +1,4 @@
-/* ============ MLX main.js — Lenis + GSAP ScrollTrigger wiring ============ */
+/* MLX main.js: Lenis + GSAP ScrollTrigger wiring */
 (function () {
   gsap.registerPlugin(ScrollTrigger);
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

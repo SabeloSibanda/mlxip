@@ -1,11 +1,9 @@
 
-/* ============ MLX — dark deep-tech design system ============ */
+/* MLX dark design system */
 
-@font-face { font-family:'Space Grotesk'; src:url('fonts/space-grotesk-latin-500.woff2') format('woff2'); font-weight:500; font-display:swap; }
-@font-face { font-family:'Space Grotesk'; src:url('fonts/space-grotesk-latin-700.woff2') format('woff2'); font-weight:700; font-display:swap; }
-@font-face { font-family:'Inter'; src:url('fonts/inter-latin-400.woff2') format('woff2'); font-weight:400; font-display:swap; }
-@font-face { font-family:'Inter'; src:url('fonts/inter-latin-500.woff2') format('woff2'); font-weight:500; font-display:swap; }
-@font-face { font-family:'JetBrains Mono'; src:url('fonts/jetbrains-mono-latin-400.woff2') format('woff2'); font-weight:400; font-display:swap; }
+@font-face { font-family:'Fraunces'; src:url('fonts/fraunces-latin-700.woff2') format('woff2'); font-weight:100 900; font-style:normal; font-display:swap; }
+@font-face { font-family:'Archivo'; src:url('fonts/archivo-latin-400.woff2') format('woff2'); font-weight:100 900; font-style:normal; font-display:swap; }
+@font-face { font-family:'Fragment Mono'; src:url('fonts/fragment-mono-latin-400.woff2') format('woff2'); font-weight:100 900; font-style:normal; font-display:swap; }
 
 :root {
   --bg:        #0A0D10;
@@ -19,9 +17,9 @@
   --accent:    #E8A23C;
   --accent-hi: #F5BC66;
   --accent-dim:rgba(232,162,60,0.12);
-  --font-head: 'Space Grotesk', 'Segoe UI', sans-serif;
-  --font-body: 'Inter', 'Segoe UI', sans-serif;
-  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+  --font-head: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Fragment Mono', 'SF Mono', ui-monospace, Consolas, monospace;
   --maxw: 1180px;
   --pad: clamp(20px, 5vw, 64px);
 }
