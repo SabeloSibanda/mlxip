@@ -12,8 +12,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install lftp
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+      - name: Install lftp and sshpass
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp sshpass
 
       - name: SFTP deploy to mlxip.com
         env:
@@ -22,17 +22,12 @@ jobs:
           pass: ${{ secrets.FTP_PASS }}
         run: |
           for i in 1 2 3 4 5; do
-            if lftp -e "set sftp:auto-confirm yes; set sftp:connect-program 'ssh -a -x -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o PubkeyAuthentication=no'; set net:max-retries 3; set net:timeout 30; mirror -R --parallel=1 --delete --exclude-glob ^\.git.* --exclude-glob ^\.github/ --exclude-glob ^deploy\.sh$ --exclude-glob \.DS_Store --exclude-glob ^README\.md$ --exclude-glob ^copy/ --exclude-glob ^assets/references/ . .; bye" "sftp://$user@$host:65002"; then
+            if lftp -e "set sftp:auto-confirm yes; set sftp:connect-program 'sshpass -p $pass ssh -a -x -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o PubkeyAuthentication=no'; set net:max-retries 5; set net:timeout 30; mirror -R --parallel=1 --delete --exclude-glob ^\.git.* --exclude-glob ^\.github/ --exclude-glob ^deploy\.sh$ --exclude-glob \.DS_Store --exclude-glob ^README\.md$ --exclude-glob ^copy/ --exclude-glob ^assets/references/ . .; bye" "sftp://$user@$host:65002"; then
               echo "Deploy succeeded on attempt $i"
               exit 0
             fi
             echo "Attempt $i failed, retrying in 10s..."
             sleep 10
           done
-          echo "All SFTP attempts failed, trying FTP..."
-          if lftp -e "set net:max-retries 3; set net:timeout 30; set ftp:ssl-allow yes; set ssl:check-hostname no; mirror -R --parallel=2 --delete --exclude-glob ^\.git.* --exclude-glob ^\.github/ --exclude-glob ^deploy\.sh$ --exclude-glob \.DS_Store --exclude-glob ^README\.md$ --exclude-glob ^copy/ --exclude-glob ^assets/references/ . public_html; bye" -u "$user","$pass" "$host"; then
-            echo "FTP deploy succeeded"
-            exit 0
-          fi
           echo "All deploy attempts failed"
           exit 1
