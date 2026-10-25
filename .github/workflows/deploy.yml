@@ -10,8 +10,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install sshpass
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq sshpass
+      - name: Install sshpass and lftp
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq sshpass lftp
 
       - name: Deploy via FTPS (encrypted data channel)
         env:
@@ -21,7 +21,7 @@ jobs:
         run: |
           for i in 1 2 3; do
             echo "=== FTPS attempt $i"
-            if lftp -u "$user","$pass" -e "set ftp:ssl-allow yes; set ftp:ssl-force yes; set ftp:ssl-protect-data yes; set ftp:passive-mode on; set ssl:check-hostname no; set net:max-retries 5; set net:timeout 30; mirror -R --parallel=1 --delete --exclude-glob ^\.git.* --exclude-glob ^\.github/ --exclude-glob ^deploy\.sh$ --exclude-glob \.DS_Store --exclude-glob ^README\.md$ --exclude-glob ^copy/ --exclude-glob ^assets/references/ . public_html; bye" "$host"; then
+            if lftp -u "$user","$pass" -e "set ftp:ssl-allow yes; set ftp:ssl-force yes; set ftp:ssl-protect-data yes; set ftp:passive-mode on; set ssl:check-hostname no; set net:max-retries 5; set net:timeout 30; mirror -R --parallel=1 --delete --exclude-glob ^\.git.* --exclude-glob ^\.github/ --exclude-glob ^deploy\.sh$ --exclude-glob \.DS_Store --exclude-glob ^README\.md$ --exclude-glob ^copy/ --exclude-glob ^assets/references/ --exclude-glob ^CNAME$ . .; bye" "$host"; then
               echo "Deploy succeeded on attempt $i"
               exit 0
             fi
