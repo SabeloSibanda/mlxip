@@ -1,7 +1,8 @@
 
 /* MLX dark design system */
 
-@font-face { font-family:'Fraunces'; src:url('fonts/fraunces-latin-700.woff2') format('woff2'); font-weight:100 900; font-style:normal; font-display:swap; }
+@font-face { font-family:'Space Grotesk'; src:url('fonts/space-grotesk-latin-700.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Space Grotesk'; src:url('fonts/space-grotesk-latin-500.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:swap; }
 @font-face { font-family:'Archivo'; src:url('fonts/archivo-latin-400.woff2') format('woff2'); font-weight:100 900; font-style:normal; font-display:swap; }
 @font-face { font-family:'Fragment Mono'; src:url('fonts/fragment-mono-latin-400.woff2') format('woff2'); font-weight:100 900; font-style:normal; font-display:swap; }
 
@@ -17,7 +18,7 @@
   --accent:    #E8A23C;
   --accent-hi: #F5BC66;
   --accent-dim:rgba(232,162,60,0.12);
-  --font-head: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-head: 'Space Grotesk', 'Archivo', 'Helvetica Neue', Arial, sans-serif;
   --font-body: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
   --font-mono: 'Fragment Mono', 'SF Mono', ui-monospace, Consolas, monospace;
   --maxw: 1180px;
